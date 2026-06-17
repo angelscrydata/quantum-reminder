@@ -284,6 +284,33 @@ textarea#reminder-text:focus {
   border: 0;
 }
 
+/* Reveal / hide toggle on the result screen (the date starts hidden) */
+.reveal-toggle {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: fit-content;
+  margin: 0 auto 24px;
+  padding: 6px 14px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  color: var(--color-secondary);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.reveal-toggle:hover {
+  color: var(--color-quantum-teal);
+  border-color: rgba(79, 139, 150, 0.4);
+}
+
+.vis-icon { flex: none; }
+.vis-icon.hidden { display: none; }
+
 /* Interactive Qubit Sliders */
 .quantum-controls {
   background: rgba(255, 255, 255, 0.02);

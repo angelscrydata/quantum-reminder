@@ -637,6 +637,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const ancillaSpin = document.getElementById('ancilla-spin');
   const ancillaVal = document.getElementById('ancilla-val');
   const quantumForm = document.getElementById('quantum-form');
+
+  const revealToggle = document.getElementById('reveal-toggle');
+  const revealLabel = document.getElementById('reveal-label');
+  const revealEye = document.getElementById('reveal-eye');
+  const revealEyeOff = document.getElementById('reveal-eye-off');
+  let dateRevealed = false; // the collapsed date starts concealed; reveal on demand
   
   const screenInput = document.getElementById('screen-input');
   const screenCollapsing = document.getElementById('screen-collapsing');
@@ -726,6 +732,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const subscripts = ['₀', '₁', '₂', '₃', '₄', '₅', '₆', '₇'];
     return subscripts[val] || val;
   }
+
+  // The collapsed date starts hidden on the result screen (the redacted look).
+  // A reveal/hide button lets the user peek and re-conceal at will. Either way
+  // the real date is still written into the calendar export actions below, so
+  // you can anchor a reminder without ever seeing when it will surface.
+  function renderTargetDate() {
+    const d = collapsedState && collapsedState.date;
+    if (!d) return;
+    if (dateRevealed) {
+      const optionsDate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const optionsTime = { hour: '2-digit', minute: '2-digit', hour12: true };
+      targetDateEl.innerText = d.toLocaleDateString(undefined, optionsDate);
+      targetTimeEl.innerText = d.toLocaleTimeString(undefined, optionsTime);
+      targetRelativeEl.innerText = getRelativeString(d);
+    } else {
+      targetDateEl.innerText = '▓▓▓▓▓ ▓▓, ▓▓▓▓';
+      targetTimeEl.innerText = '▓▓:▓▓';
+      targetRelativeEl.innerText = 'hidden until it arrives';
+    }
+  }
+
+  function updateRevealButton() {
+    revealLabel.textContent = dateRevealed ? 'hide date' : 'reveal date';
+    revealEye.classList.toggle('hidden', dateRevealed);
+    revealEyeOff.classList.toggle('hidden', !dateRevealed);
+    revealToggle.setAttribute('aria-pressed', String(dateRevealed));
+  }
+
+  revealToggle.addEventListener('click', () => {
+    dateRevealed = !dateRevealed;
+    renderTargetDate();
+    updateRevealButton();
+    synth.playTick();
+  });
 
   // Form submit: Start collapsing process
   quantumForm.addEventListener('submit', async (e) => {
@@ -820,15 +860,11 @@ document.addEventListener('DOMContentLoaded', () => {
       synth.playCollapseChime();
       portal.setState('collapsed');
 
-      // Populate results
-      const optionsDate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-      const optionsTime = { hour: '2-digit', minute: '2-digit', hour12: true };
-      
-      targetDateEl.innerText = result.date.toLocaleDateString(undefined, optionsDate);
-      targetTimeEl.innerText = result.date.toLocaleTimeString(undefined, optionsTime);
-      
-      // Calculate relative countdown
-      targetRelativeEl.innerText = getRelativeString(result.date);
+      // Populate results. The date starts hidden; the reveal button on the
+      // result screen lets the user show it (and hide it again) on demand.
+      dateRevealed = false;
+      renderTargetDate();
+      updateRevealButton();
 
       // Populate metric values
       metricPsi.innerText = psiStr;
