@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔮</text></svg>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Entangle your thoughts with your future timeline. The Quantum Reminder Calculator uses cryptographic hashing and quantum pseudorandomness to determine the exact moment your reminders must find you." />
+    <title>Quantum Reminder Calculator | Temporal Entanglement Portal</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Space+Grotesk:wght@300;400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Background Canvas for Quantum Wave Particles -->
+    <canvas id="quantum-canvas"></canvas>
+    
+    <div id="app">
+      <!-- Top Bar / Navigation -->
+      <header class="portal-header">
+        <div class="logo-area">
+          <span class="pulse-dot"></span>
+          <span class="portal-status">SYSTEM ACTIVE // COHERENCE 100%</span>
+        </div>
+        <button id="audio-toggle" class="audio-btn" aria-label="Toggle ambient frequencies" title="Enable Ambient Coherence Frequencies">
+          <svg id="volume-icon" class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07" class="sound-wave wave-mid"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14" class="sound-wave wave-outer"></path>
+            <line x1="23" y1="9" x2="23" y2="15" class="mute-x hidden"></line>
+          </svg>
+          <span id="audio-status-text">AMBIENT OFF</span>
+        </button>
+      </header>
+
+      <main class="portal-content">
+        <!-- Section 1: Introduction & Input -->
+        <section id="screen-input" class="portal-card active">
+          <h1 class="portal-title">Quantum Reminder Calculator</h1>
+          <p class="portal-subtitle">
+            Transcribe a thought to be projected onto your future timeline. Using cryptographic hashing and simulated quantum state measurement, the exact coordinate of its decoherence will be locked.
+          </p>
+
+          <form id="quantum-form" onsubmit="return false;">
+            <div class="input-group">
+              <label for="reminder-text" class="sr-only">Your Reminder Message</label>
+              <textarea 
+                id="reminder-text" 
+                maxlength="500" 
+                placeholder="Whisper your reminder to the future..." 
+                required
+                autocomplete="off"
+                spellcheck="false"
+              ></textarea>
+              <div class="char-counter"><span id="char-count">0</span> / 500</div>
+            </div>
+
+            <!-- Interactive Qubit Configuration (Thematic controls) -->
+            <div class="quantum-controls">
+              <div class="control-box">
+                <label for="ancilla-spin">
+                  Ancilla Spin State: 
+                  <span id="ancilla-val" class="mono-text">Spin-0 (ψ₀)</span>
+                </label>
+                <div class="slider-container">
+                  <input type="range" id="ancilla-spin" min="0" max="7" value="0" step="1">
+                  <div class="slider-ticks">
+                    <span>ψ₀</span><span>ψ₁</span><span>ψ₂</span><span>ψ₃</span><span>ψ₄</span><span>ψ₅</span><span>ψ₆</span><span>ψ₇</span>
+                  </div>
+                </div>
+                <small class="control-help">Adjusting spin spin-polarizes the wave collapse, altering the temporal trajectory.</small>
+              </div>
+            </div>
+
+            <button type="submit" id="collapse-btn" class="glow-btn">
+              <span class="btn-glow-layer"></span>
+              <span class="btn-text">Collapse Wave Function</span>
+            </button>
+          </form>
+        </section>
+
+        <!-- Section 2: Collapse Loading / Mystical Computation -->
+        <section id="screen-collapsing" class="portal-card hidden">
+          <div class="portal-spinner">
+            <div class="orbiting-ring ring-1"></div>
+            <div class="orbiting-ring ring-2"></div>
+            <div class="orbiting-ring ring-3"></div>
+            <div class="central-core"></div>
+          </div>
+          <h2 class="collapsing-title">MEASURING WAVE STATE</h2>
+          <div class="quantum-terminal">
+            <div id="terminal-lines" class="mono-text"></div>
+          </div>
+          <div class="loading-bar-container">
+            <div id="loading-bar" class="loading-bar"></div>
+          </div>
+        </section>
+
+        <!-- Section 3: Collapse Result -->
+        <section id="screen-result" class="portal-card hidden">
+          <div class="success-halo"></div>
+          <h2 class="result-title">TEMPORAL COORDINATE COLLAPSED</h2>
+          
+          <div class="result-display">
+            <div class="result-date" id="target-date">October 17, 2026</div>
+            <div class="result-time" id="target-time">09:23 AM</div>
+            <div class="result-relative" id="target-relative">in 3 months, 2 days</div>
+          </div>
+
+          <div class="action-instructions">
+            <p>This thought has been anchored. You must record this date and time in your calendar now. Once done, initiate the Erasure Protocol.</p>
+          </div>
+
+          <div class="result-actions">
+            <button id="btn-copy" class="action-btn" title="Copy date and time to clipboard">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              <span>Copy Coordinate</span>
+            </button>
+            <button id="btn-gcal" class="action-btn" title="Add event to Google Calendar">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <span>Google Calendar</span>
+            </button>
+            <button id="btn-ical" class="action-btn" title="Download .ics file for Apple Calendar / Outlook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <span>Download iCal</span>
+            </button>
+          </div>
+
+          <!-- Cryptic Details -->
+          <div class="cryptic-details-container">
+            <button id="details-toggle" class="details-toggle-btn">
+              <span>View Entanglement Entropy Metrics</span>
+              <svg id="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div id="details-drawer" class="details-drawer">
+              <table class="metrics-table mono-text">
+                <tr>
+                  <td>Wave amplitude (ψ)</td>
+                  <td id="metric-psi">0.707 + 0.312i</td>
+                </tr>
+                <tr>
+                  <td>Quantum Phase (θ)</td>
+                  <td id="metric-theta">1.424 rad</td>
+                </tr>
+                <tr>
+                  <td>Collapse Entropy</td>
+                  <td id="metric-entropy">1.983 qubits</td>
+                </tr>
+                <tr>
+                  <td>Decoherence Time</td>
+                  <td id="metric-t2">3.18e-13 s</td>
+                </tr>
+                <tr>
+                  <td>Coordinate Hash</td>
+                  <td id="metric-hash" class="hash-text">a9f4c3...88b2</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+          <button id="erase-btn" class="glow-btn danger-btn">
+            <span class="btn-glow-layer"></span>
+            <span class="btn-text">Initiate Erasure Protocol</span>
+          </button>
+        </section>
+      </main>
+
+      <!-- Bottom explanation section -->
+      <footer class="portal-footer">
+        <section class="explanation-section">
+          <h2>The Protocol of Temporal Coherence</h2>
+          <div class="explanation-grid">
+            <div class="explanation-box">
+              <h3>I. Quantum Projection</h3>
+              <p>Your reminder is not stored on any remote database, server, or local disk. The exact delivery date is derived using a deterministic wave function mapping. The calculation relies on quantum pseudorandom simulation: extracting the entropy from your message's cryptographic signature and modeling qubit decay over a temporal boundary bounded between 1 day and 12 years.</p>
+            </div>
+            <div class="explanation-box">
+              <h3>II. Calendar Entanglement</h3>
+              <p>By registering this event in your external calendar, you establish a temporal link. Your calendar acts as the physical register that will measure the decoherence of this wave state when the date arrives. It is recommended to label the calendar entry simply as <code class="mono-text">"Open the Portal"</code> or <code class="mono-text">"A Quantum Memory Awaits"</code> and store the message in the description.</p>
+            </div>
+            <div class="explanation-box">
+              <h3>III. Total Erasure</h3>
+              <p>Once you copy the date, the Erasure Protocol will scrub this thought from the portal's active memory. The thought will no longer exist in this app, in your browser history, or in local variables. It exists only in your future. Do not attempt to calculate the same message twice, as doing so introduces temporal interference and alters the state.</p>
+            </div>
+          </div>
+        </section>
+        
+        <div class="copyright-info">
+          <p>© 2026 QUANTUM TEMPORAL ENCODER // ALL DATA COLLAPSED AND ERADICATED UPON TRANSCRIPTION</p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
