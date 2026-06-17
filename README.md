@@ -2,6 +2,8 @@
 
 > *Entangle your thoughts with your future timeline.*
 
+**[→ See it live](https://quantum-reminder.angelscrydata.workers.dev/)**
+
 A single-page web app that turns any reminder you type into a deterministic future date and time, then hands you calendar export links to anchor it. Wrapped in a quantum-physics theme, complete with a generative ambient synth and an animated particle portal.
 
 Everything runs **client-side**. Your message never leaves the browser: no server, no database, no local storage.
