@@ -1,0 +1,10 @@
+{
+  "name": "quantum-reminder",
+  "compatibility_date": "2025-06-01",
+  // Static site: no Worker script, just serve the built files in ./dist.
+  "assets": {
+    "directory": "./dist",
+    // Single-page app: serve index.html for any unmatched path.
+    "not_found_handling": "single-page-application"
+  }
+}
