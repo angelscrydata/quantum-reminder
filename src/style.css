@@ -67,6 +67,8 @@ body {
   display: flex;
   flex-direction: column;
   padding: 24px;
+  /* Scale all content up a touch for readability (background stays full-size). */
+  zoom: 1.1;
 }
 
 /* Top Navigation / Header */
