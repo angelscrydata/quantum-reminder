@@ -812,6 +812,23 @@ input[type="range"]::-moz-range-thumb {
   color: rgba(255, 255, 255, 0.25);
 }
 
+.copyright-info .origin-link {
+  margin-top: 8px;
+}
+
+.copyright-info .origin-link a {
+  color: rgba(255, 255, 255, 0.35);
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
+  transition: var(--transition-fast);
+}
+
+.copyright-info .origin-link a:hover {
+  color: var(--color-quantum-teal);
+  border-bottom-color: var(--color-quantum-teal);
+  text-shadow: 0 0 6px rgba(79, 139, 150, 0.5);
+}
+
 /* Responsive Styles */
 @media (max-width: 860px) {
   .explanation-grid {
