@@ -48,3 +48,7 @@ public/         Static assets (icons, favicon)
 - **Web Crypto API** for SHA-256 hashing
 - **Web Audio API** for the generative ambient soundscape
 - **Canvas 2D** for the particle portal animation
+
+
+---
+Vibecoded with ❤️

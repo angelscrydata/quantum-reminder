@@ -643,6 +643,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const revealEye = document.getElementById('reveal-eye');
   const revealEyeOff = document.getElementById('reveal-eye-off');
   let dateRevealed = false; // the collapsed date starts concealed; reveal on demand
+
+  // Header "coherence" readout: mostly hovers 95-100%, with occasional dips.
+  const coherenceVal = document.getElementById('coherence-val');
+  function tickCoherence() {
+    const r = Math.random();
+    let pct;
+    if (r < 0.72) pct = 95 + Math.random() * 5;        // usual: 95-100%
+    else if (r < 0.92) pct = 90 + Math.random() * 5;   // occasional: 90-95%
+    else if (r < 0.99) pct = 82 + Math.random() * 8;   // rare dip: 82-90%
+    else pct = 70 + Math.random() * 12;                // very rare: 70-82%
+    coherenceVal.textContent = String(Math.round(Math.min(100, pct)));
+    setTimeout(tickCoherence, 5000 + Math.random() * 4000);
+  }
+  tickCoherence(); // start drifting right away
   
   const screenInput = document.getElementById('screen-input');
   const screenCollapsing = document.getElementById('screen-collapsing');
